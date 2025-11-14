@@ -1,7 +1,7 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO W4CKYFR/CGL
-    REF main
+    REF v.0.0.1
 )
 
 vcpkg_cmake_configure(
