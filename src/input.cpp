@@ -74,7 +74,6 @@ namespace cgl {
 			s_ButtonPressed = false;
 			return true;
 		}
-		else if (!s_Window) return false;
 		return false;
 	}
 
