@@ -10,7 +10,7 @@ Core Graphics Library is a library that I made to make OpenGL simple to code in.
 
 1. For windows you can download the CGL-Installer.exe from one of the [releases](https://github.com/W4CKYFR/CGL/releases).
 2. Or optionally you can also download the .zip file.
-3. After CGL has been downloaded you will make a project in Visual Studio.
+3. After CGL has been downloaded you will make a C++ project in [Visual Studio](https://visualstudio.microsoft.com).
 4. In the project you will need to include the lib folder as an additional library directory (In the Linker, Input)
 5. Do the same for the include folder, but as an additional include directory (In VC++ Directories and C/C++)
 6. Also make sure you have installed [GLFW](https://www.glfw.org) for this project (unless you used vcpkg, it does that automatically)
