@@ -43,3 +43,14 @@ Core Graphics Library is a library that I made to make OpenGL simple to code in.
 6. Remember to make sure you have [GLFW](https://www.glfw.org) installed for this project<br>
 7. Now you should have CGL installed and ready to use.<br>
 8. If you need any help join the official [CGL Discord](discord.gg/JrsCsKBDtM)<br>
+
+## Code::Blocks Installation
+
+1. Download the latest .zip file from [releases](https://github.com/W4CKYFR/CGL/releases).<br>
+2. After CGL has downloaded you will make a project in [Code::Blocks](https://www.codeblocks.org).<br>
+3. In [Code::Blocks](https://www.codeblocks.org) will go to Project, Build Options and Select your project on the left. <br>
+4. Then select the compiler tab, click add and then choose the path to where CGL is downloaded and in there select the "include" folder.<br>
+5. Then go to the linker tab, click add and select the path to where CGL is downloaded and in there select the "lib" folder.<br>
+6. After that go to linker settings, click Add and select the .lib file inside of the "lib" folder of CGL.
+7. Now you should have CGL installed and ready to use.<br>
+8. If you need any help join the official [CGL Discord](discord.gg/JrsCsKBDtM)<br>
