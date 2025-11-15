@@ -41,6 +41,19 @@ CGL was created by two people<br>The main developer, Owner and Founder: [Wacky](
 CGL was made so **YOU** could have an easy and fun time developing games and other graphics programs/software<br>
 CGL was first created on the 11th of November 2025 which was also [Axov's](https://github.com/AXOV2YT) birthday.<br>
 
+## Features
+- One External Dependency. [GLFW](https://www.glfw.org) (This is subject to change in the near future). All other dependencies are included with CGL.  
+- Supported in atleast: Windows, Linux and MacOS  
+- All source files are written in plain C++20 Standard.
+- CGL has an Input system that includes "IsKeyPressed", "IsKeyReleased", "IsKeyDown", and more. And also has custom Input Binding.
+- CGL has a Window system that let's you create and use windows very easily.
+- CGL is **still in development** which means there is **Much, much, much more to come***
+- CGL uses the zlib license. Learn more in [LICENSE](https://github.com/W4CKYFR/CGL/blob/main/LICENSE)
+- CGL is **Free to use** and **Open Source**
+
+  
+---
+  
 > [!NOTE]
 > **CGL Info box:**<br>
 > CGL is a lightweight OpenGL library/wrapper.<br>
