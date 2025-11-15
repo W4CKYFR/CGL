@@ -4,7 +4,7 @@ Core Graphics Library is a library that I made to make OpenGL simple to code in.
 
 # How to install CGL for Visual Studio
 
-> ⚠️ **WARNING: GLFW IS REQUIRED**
+> ⚠️ **WARNING: GLFW IS REQUIRED**<br>
 > Before using CGL you will need to have GLFW installed and ready to go
 > We recommend using vcpkg for simplicity if you are using Visual Studio. 
 > Thank you!
