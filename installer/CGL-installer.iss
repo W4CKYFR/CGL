@@ -2,8 +2,8 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 ; Non-commercial use only
 
-#define MyAppName "CGL-0.0.1"
-#define MyAppVersion "0.0.1"
+#define MyAppName "CGL-0.0.2"
+#define MyAppVersion "0.0.2"
 #define MyAppPublisher "WackyDev"
 #define MyAppURL "https://github.com/W4CKYFR/CGL"
 

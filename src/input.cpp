@@ -1,6 +1,7 @@
 #include "cgl.hpp"
 #include <string>
 #include <GLFW/glfw3.h>
+#include <unordered_map>
 
 namespace cgl {
 	GLFWwindow* Input::s_Window = nullptr;
@@ -10,6 +11,8 @@ namespace cgl {
 	int Input::s_LastButton = -1;
 	bool Input::s_KeyReleased = false;
 	bool Input::s_ButtonReleased = false;
+	std::unordered_map<std::string, Key> Input::s_KeyInputBindings;
+	std::unordered_map<std::string, Mouse> Input::s_MouseInputBindings;
 
 	void Input::SetWindow(GLFWwindow* window) {
 		s_Window = window;
@@ -48,12 +51,30 @@ namespace cgl {
 		return glfwGetKey(s_Window, static_cast<int>(key)) == GLFW_PRESS;
 	}
 
+	bool Input::IsKeyDown(const std::string& InputName) {
+		auto it = s_KeyInputBindings.find(InputName);
+		if (it == s_KeyInputBindings.end()) {
+			return false;
+		}
+
+		return IsKeyDown(it->second);
+	}
+
 	bool Input::IsKeyPressed(Key key) {
 		if (s_KeyPressed && s_LastKey == static_cast<int>(key)) {
 			s_KeyPressed = false;
 			return true;
 		}
 		return false;
+	}
+
+	bool Input::IsKeyPressed(const std::string& InputName) {
+		auto it = s_KeyInputBindings.find(InputName);
+		if (it == s_KeyInputBindings.end()) {
+			return false;
+		}
+
+		return IsKeyPressed(it->second);
 	}
 
 	bool Input::IsKeyReleased(Key key) {
@@ -64,9 +85,26 @@ namespace cgl {
 		return false;
 	}
 
+	bool Input::IsKeyReleased(const std::string& InputName) {
+		auto it = s_KeyInputBindings.find(InputName);
+		if (it == s_KeyInputBindings.end()) {
+			return false;
+		}
+
+		return IsKeyReleased(it->second);
+	}
+
 	bool Input::IsMouseButtonDown(Mouse mouseButton) {
 		if (!s_Window) return false;
 		return glfwGetMouseButton(s_Window, static_cast<int>(mouseButton)) == GLFW_PRESS;
+	}
+
+	bool Input::IsMouseButtonDown(const std::string& MouseInputName) {
+		auto it = s_MouseInputBindings.find(MouseInputName);
+		if (it == s_MouseInputBindings.end())
+			return false;
+
+		return IsMouseButtonDown(it->second);
 	}
 
 	bool Input::IsMouseButtonPressed(Mouse mouseButton) {
@@ -77,11 +115,35 @@ namespace cgl {
 		return false;
 	}
 
-	bool Input::IsMouseButtonReleased(Mouse button) {
-		if (s_ButtonReleased && s_LastButton == static_cast<int>(button)) {
+	bool Input::IsMouseButtonPressed(const std::string& MouseInputName) {
+		auto it = s_MouseInputBindings.find(MouseInputName);
+		if (it == s_MouseInputBindings.end())
+			return false;
+
+		return IsMouseButtonPressed(it->second);
+	}
+
+	bool Input::IsMouseButtonReleased(Mouse mouseButton) {
+		if (s_ButtonReleased && s_LastButton == static_cast<int>(mouseButton)) {
 			s_ButtonReleased = false;
 			return true;
 		}
 		return false;
+	}
+
+	bool Input::IsMouseButtonReleased(const std::string& InputName) {
+		auto it = s_MouseInputBindings.find(InputName);
+		if (it == s_MouseInputBindings.end())
+			return false;
+
+		return IsMouseButtonReleased(it->second);
+	}
+
+	void Input::BindKeyInput(const std::string& InputName, Key key) {
+		s_KeyInputBindings[InputName] = key;
+	}
+
+	void Input::BindMouseInput(const std::string& MouseInputName, Mouse mouseButton) {
+		s_MouseInputBindings[MouseInputName] = mouseButton;
 	}
 }

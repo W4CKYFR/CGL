@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <GLFW/glfw3.h>
+#include <unordered_map>
 
 namespace cgl {
 	enum class Key {
@@ -77,14 +78,22 @@ namespace cgl {
 	class Input {
 	public:
 		static bool IsKeyDown(Key key);
+		static bool IsKeyDown(const std::string& InputName);
 		static bool IsMouseButtonDown(Mouse mouseButton);
+		static bool IsMouseButtonDown(const std::string& InputName);
 		static void SetWindow(GLFWwindow* window);
 		static bool IsKeyPressed(Key key);
+		static bool IsKeyPressed(const std::string& InputName);
 		static bool IsKeyReleased(Key key);
+		static bool IsKeyReleased(const std::string& InputName);
 		static bool IsMouseButtonPressed(Mouse mouseButton);
+		static bool IsMouseButtonPressed(const std::string& InputName);
 		static bool IsMouseButtonReleased(Mouse mouseButton);
+		static bool IsMouseButtonReleased(const std::string& InputName);
 		static void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 		static void MouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
+		static void BindKeyInput(const std::string& InputName, Key);
+		static void BindMouseInput(const std::string& MouseInputName, Mouse);
 
 	private:
 		static GLFWwindow* s_Window;
@@ -94,5 +103,7 @@ namespace cgl {
 		static int s_LastButton;
 		static bool s_KeyReleased;
 		static bool s_ButtonReleased;
+		static std::unordered_map<std::string, Key> s_KeyInputBindings;
+		static std::unordered_map<std::string, Mouse> s_MouseInputBindings;
 	};
 }
