@@ -24,7 +24,7 @@ Core Graphics Library is a library that I made to make OpenGL simple to code in.
 > Otherwise you might want to watch a tutorial on how to include additional include directories and libraries.<br>
 > Remember to have GLFW installed and ready to use for the project.<br>
 > Again we recommend you to use vcpkg for maximum simplicity if you are using [Visual Studio](https://visualstudio.microsoft.com)<br>
-> If you are using Visual Studio you can use the Windows Installing guide.<br>
+> If you are using [Visual Studio](https://visualstudio.microsoft.com) you can use the Windows Installing guide.<br>
 
 > [!TIP]
 > The following guide includes a tutorial for [CLion](https://www.jetbrains.com/clion), [QT Creator](https://www.qt.io/product/development-tools) and [Code::Blocks](https://www.codeblocks.org)<br>
