@@ -18,4 +18,4 @@ Core Graphics Library is a library that I made to make OpenGL simple to code in.
 5. Do the same for the include folder, but as an additional include directory (In VC++ Directories and C/C++)
 6. Also make sure you have downloaded GLFW for this project (unless you used vcpkg, it does that automatically)
 7. Now you should have CGL installed and ready to use.
-8. If you need any help join the official CGL discord: discord.gg/JrsCsKBDtM
+8. If you need any help join the official CGL discord: <discord.gg/JrsCsKBDtM>
