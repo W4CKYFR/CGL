@@ -1,6 +1,9 @@
-# CGL
+# CGL Beta
 Core Graphics Library is a library that I made to make OpenGL simple to code in.<br>I'd like to credit GLFW for their library which powers mine.
 
+> [!CAUTION]
+> THIS IS THE BETA VERSION OF CGL. IT CAN AND PROBABLY WILL INCLUDE BUGS AND WILL BE UNSTABLE.
+> ONLY USE THIS IF YOU ARE ABSOLUTELY SURE YOU WANT TO.
 
 # How to install CGL for Visual Studio
 
