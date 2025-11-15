@@ -1,5 +1,5 @@
 # CGL
-Core Graphics Library is a library that I made to make OpenGL simple to code in. /nI'd like to credit GLFW for their library which powers mine.
+Core Graphics Library is a library that I made to make OpenGL simple to code in.<br>I'd like to credit GLFW for their library which powers mine.
 
 
 # How to install CGL for Visual Studio
