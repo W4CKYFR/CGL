@@ -39,7 +39,7 @@ Core Graphics Library is a library that I made to make OpenGL simple to code in.
 2. After CGL has downloaded you will make a project in [QT Creator](https://www.qt.io/product/development-tools).<br>
 3. Right click your project and then click "Add Library" <br>
 4. It will ask for a path to the .lib file in which you will put your path to the CGL folder and then in there the "lib" folder<br>
-5. It will also ask for a path to the .hpp files in which you will put your path to the CGL folder and then in there the "include" folder<br>
+5. It will also ask for a path to the "include" directory in which you will put your path to the CGL folder and then in there the "include" folder<br>
 6. Remember to make sure you have [GLFW](https://www.glfw.org) installed for this project<br>
 7. Now you should have CGL installed and ready to use.<br>
 8. If you need any help join the official [CGL Discord](discord.gg/JrsCsKBDtM)<br>
