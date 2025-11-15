@@ -1,4 +1,7 @@
 # CGL
+
+<img width="1058" height="1190" alt="CGL-Logo" src="https://github.com/user-attachments/assets/cb2ebadc-e519-47d7-833d-f6771b6d5e5b" />
+
 Core Graphics Library is a library that I made to make OpenGL simple to code in.<br>
 I'd like to credit GLFW for their library which powers mine.
 
