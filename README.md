@@ -14,8 +14,16 @@ I'd like to credit GLFW for their library which powers mine.
 > Thank you!
 
 ## Additional information about CGL.
-CGL was created by two people, The main developer, Owner and Founder: [Wacky](https://github.com/W4CKYFR) and The main graphics designer, Co-Owner and Co-Founder: [Axov](https://github.com/AXOV2YT)<br>
-CGL was made so 
+CGL was created by two people<br>The main developer, Owner and Founder: [Wacky](https://github.com/W4CKYFR)<br>The main graphics designer, Co-Owner and Co-Founder: [Axov](https://github.com/AXOV2YT)<br>
+CGL was made so **YOU** could have an easy and fun time developing games and other graphics programs/software<br>
+CGL was first created on the 11th of November 2025 which was also [Axov's](https://github.com/AXOV2YT) birthday.<br>
+
+[!NOTE]
+> **CGL Info box:**<br>
+> CGL is a lightweight OpenGL library/wrapper.<br>
+> CGL uses [GLFW](https://www.glfw.org) to function.<br>
+> CGL is made to be fun and Easy-To-Use<br>
+> CGL was made because [Wacky](https://github.com/W4CKYFR) was tired of having to code hundreds of lines for a triangle.<br>
 
 ## Windows and Visual Studio Installation Guide
 
