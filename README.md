@@ -24,6 +24,7 @@ CGL was first created on the 11th of November 2025 which was also [Axov's](https
 > CGL uses [GLFW](https://www.glfw.org) to function.<br>
 > CGL is made to be fun and Easy-To-Use<br>
 > CGL was made because [Wacky](https://github.com/W4CKYFR) was tired of having to code hundreds of lines for a triangle.<br>
+> CGL is an Object-Oriented Library meaning it uses "objects" to structure software, each object combines data and the functions
 
 ## Windows and Visual Studio Installation Guide
 
