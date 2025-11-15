@@ -18,7 +18,7 @@ CGL was created by two people<br>The main developer, Owner and Founder: [Wacky](
 CGL was made so **YOU** could have an easy and fun time developing games and other graphics programs/software<br>
 CGL was first created on the 11th of November 2025 which was also [Axov's](https://github.com/AXOV2YT) birthday.<br>
 
-[!NOTE]
+> [!NOTE]
 > **CGL Info box:**<br>
 > CGL is a lightweight OpenGL library/wrapper.<br>
 > CGL uses [GLFW](https://www.glfw.org) to function.<br>
