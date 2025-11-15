@@ -1,10 +1,27 @@
 # CGL
 
-<img img align="left" style="width:260px" alt="CGL-Logo" src="https://github.com/user-attachments/assets/cb2ebadc-e519-47d7-833d-f6771b6d5e5b" width="288px"/>
+<table>
+<tr>
+<td width="300">
 
-Core Graphics Library is a library that I made to make OpenGL simple to code in.<br>
-I'd like to credit GLFW for their library which powers mine.<br>
-CGL is inspired by Raylib and it's made mostly for Video Game developing, but can be used for other types of Graphics programming.<br>
+<img src="https://github.com/user-attachments/assets/cb2ebadc-e519-47d7-833d-f6771b6d5e5b" width="260"/>
+
+</td>
+<td>
+
+Core Graphics Library is a library that I made to make OpenGL simple to code in.<br>  
+
+I'd like to credit GLFW for their library which powers mine.<br>  
+
+CGL is inspired by Raylib and it's made mostly for Video Game developing, but can be used for other types of Graphics programming.<br>  
+
+CGL strives to be the best version of itself each and every update, your feedback is appreciated!<br>  
+
+Join the official [CGL Discord Server](https://discord.gg/JrsCsKBDtM) to follow updates, talk to owners and give feedback.<br>
+
+</td>
+</tr>
+</table>
 
 ---
 
