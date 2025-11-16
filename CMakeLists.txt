@@ -1,37 +1,38 @@
 cmake_minimum_required(VERSION 3.15)
 project(CGL LANGUAGES CXX)
 
-# --- Compiler settings ---
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# --- Source files ---
+find_package(glfw3 CONFIG REQUIRED)
+find_package(OpenGL REQUIRED)
+
+# Source
 file(GLOB_RECURSE CGL_SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
 
-# --- Create Static Library ---
 add_library(CGL STATIC ${CGL_SOURCES})
 
 target_include_directories(CGL
     PUBLIC
-        ${PROJECT_SOURCE_DIR}/include
+      $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+      $<INSTALL_INTERFACE:include>
 )
 
-target_link_libraries(CGL
-    PUBLIC
-        glfw
-        OpenGL::GL
-)
+# Link OpenGL (handle cases where imported target may not exist)
+if (TARGET OpenGL::GL)
+  target_link_libraries(CGL PUBLIC glfw OpenGL::GL)
+else()
+  target_link_libraries(CGL PUBLIC glfw ${OPENGL_gl_LIBRARY})
+endif()
 
 set_target_properties(CGL PROPERTIES
     OUTPUT_NAME "CGL"
     POSITION_INDEPENDENT_CODE ON
-    INTERPROCEDURAL_OPTIMIZATION TRUE  # optional: reduces final lib size
+    INTERPROCEDURAL_OPTIMIZATION TRUE
 )
 
-# --- Installation ---
 include(GNUInstallDirs)
-
 install(TARGETS CGL
     EXPORT CGLTargets
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
