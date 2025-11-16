@@ -1,9 +1,12 @@
-#include "cgl_audio.hpp"
+#include "cgl.hpp"
 #include <iostream>
+#define MA_NO_ENCODING                          
+#define MA_NO_WAV_ENCODE          
+#define MA_NO_FLAC                
+#define MA_NO_FLAC_PLUGIN         
+#define MA_NO_DITHER                   
 #define MINIAUDIO_IMPLEMENTATION
 #include "miniaudio.h"
-
-
 
 
 namespace cgl {
