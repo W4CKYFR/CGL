@@ -1,4 +1,3 @@
-# CGL
 
 <table>
 <tr>
