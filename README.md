@@ -46,7 +46,7 @@ CGL was first created on the 11th of November 2025 which was also [Axov's](https
 - All source files are written in plain C++20 Standard.
 - CGL has an Input system that includes "IsKeyPressed", "IsKeyReleased", "IsKeyDown", and more. And also has custom Input Binding.
 - CGL has a Window system that let's you create and use windows very easily.
-- CGL is **still in development** which means there is **Much, much, much more to come***
+- CGL is **still in development** which means there is **Much, much, much more to come**
 - CGL uses the zlib license. Learn more in [LICENSE](https://github.com/W4CKYFR/CGL/blob/main/LICENSE)
 - CGL is **Free to use** and **Open Source**
 
