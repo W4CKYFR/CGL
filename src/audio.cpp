@@ -1,6 +1,8 @@
+#include "cgl_audio.hpp"
+#include <iostream>
 #define MINIAUDIO_IMPLEMENTATION
-#include <miniaudio.h>
-#include "cgl.hpp"
+#include "miniaudio.h"
+
 
 
 
