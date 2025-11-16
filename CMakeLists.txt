@@ -5,36 +5,35 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Find dependencies
 find_package(glfw3 CONFIG REQUIRED)
 find_package(OpenGL REQUIRED)
 
-# Source files
-file(GLOB_RECURSE CGL_SOURCES
-  "${PROJECT_SOURCE_DIR}/src/*.cpp"
-)
+file(GLOB_RECURSE CGL_SOURCES "${PROJECT_SOURCE_DIR}/src/*.cpp")
 
-# Build static library
 add_library(CGL STATIC ${CGL_SOURCES})
 
-# Include headers
 target_include_directories(CGL
   PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
 
-# Link libraries
-if (TARGET OpenGL::GL)
-  target_link_libraries(CGL PUBLIC glfw OpenGL::GL)
-else()
-  target_link_libraries(CGL PUBLIC glfw ${OPENGL_gl_LIBRARY})
+target_link_libraries(CGL
+  PUBLIC
+    glfw
+    $<$<TARGET_EXISTS:OpenGL::GL>:OpenGL::GL>
+    $<$<NOT:$<TARGET_EXISTS:OpenGL::GL>>:${OPENGL_gl_LIBRARY}>
+)
+
+# For MSVC: enable /GL + optimization, drop unreferenced functions
+if (MSVC)
+  target_compile_options(CGL PRIVATE /GL /O2 /Gy)
+  target_link_options(CGL PRIVATE /LTCG /OPT:REF /OPT:ICF)
 endif()
 
-# Enable interprocedural optimization / LTO if supported
+# Enable IPO or LTO if the toolchain supports it
 set_property(TARGET CGL PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
 
-# Installation
 include(GNUInstallDirs)
 
 install(TARGETS CGL
