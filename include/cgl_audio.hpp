@@ -1,5 +1,7 @@
 #include <iostream>
-#include "miniaudio.h"
+#include <vector>
+#include <AL/al.h>
+#include <AL/alc.h>
 
 namespace cgl {
 	class Audio {
@@ -10,6 +12,8 @@ namespace cgl {
 		bool isReady() const;
 
 	private:
+		ALCdevice* device = nullptr;
+		ALCcontext* context = nullptr;
 		bool ready = false;
 	};
 
@@ -18,10 +22,13 @@ namespace cgl {
 		Sound(const std::string& file);
 		~Sound();
 		void Play();
-		void SetVolume(float volume);
-		void SetPitch(float pitch);
+		void SetVolume(ALfloat volume);
+		void SetPitch(ALfloat pitch);
+		ALfloat GetVolume() const;
+		ALfloat GetPitch() const;
 	private:
-		ma_sound sound;
+		ALuint buffer = 0;
+		ALuint source = 0;
 	};
 
 	class Music {
@@ -34,7 +41,7 @@ namespace cgl {
 		void SetPitch(float pitch);
 		void SetLooping(bool IsLooping);
 	private:
-		ma_sound music;
+		ALuint source = 0;
 	};
 
 }
