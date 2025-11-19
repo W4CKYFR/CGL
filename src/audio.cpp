@@ -1,31 +1,27 @@
 #include "cgl.hpp"
 #include <iostream>
-#define MA_NO_ENCODING                          
-#define MA_NO_WAV_ENCODE          
-#define MA_NO_FLAC                
-#define MA_NO_FLAC_PLUGIN         
-#define MA_NO_DITHER                   
-#define MINIAUDIO_IMPLEMENTATION
-#include "miniaudio.h"
-
-
-
+#include <AL/al.h>
+#include <AL/alc.h>
+#include <vorbis/vorbisfile.h>
 
 namespace cgl {
-	static ma_engine gEngine;
-
 	Audio::Audio() {
-		if (ma_engine_init(NULL, &gEngine) != MA_SUCCESS) {
-			std::cerr << "Failed to initialize audio engine" << std::endl;
-			ready = false;
+		device = alcOpenDevice(nullptr);
+		if (!device) return;
+
+		context = alcCreateContext(device, nullptr);
+		if (!context) {
+			alcCloseDevice(device);
+			return;
 		}
-		else {
-			ready = true;
-		}
+
+		alcMakeContextCurrent(context);
+		ready = true;
 	}
 
 	Audio::~Audio() {
-		ma_engine_uninit(&gEngine);
+		if (context) alcDestroyContext(context);
+		if (device) alcCloseDevice(device);
 	}
 
 	bool Audio::isReady() const {
@@ -33,56 +29,70 @@ namespace cgl {
 	}
 
 	Sound::Sound(const std::string& file) {
-		if (ma_sound_init_from_file(&gEngine, file.c_str(), MA_SOUND_FLAG_DECODE, NULL, NULL, &sound) != MA_SUCCESS) {
-			std::cerr << "Failed to load sound: " << file << std::endl;
+		alGenBuffers(1, &buffer);
+
+		const int bufferSize = 16384;
+		std::vector<char> pcmBuffer(bufferSize);
+
+		OggVorbis_File oggFile;
+		if (ov_fopen(file.c_str(), &oggFile) < 0) {
+			std::cerr << "OGG file not found or doesn't exist." << std::endl;
+			return;
 		}
+
+		vorbis_info* info = ov_info(&oggFile, -1);
+		int channels = info->channels;
+		int sampleRate = info->rate;
+
+		std::vector<short> pcmData;
+		int bitstream;
+		long samplesRead;
+
+		do {
+			samplesRead = ov_read(&oggFile, pcmBuffer.data(), bufferSize, 0, 2, 1, &bitstream);
+			if (samplesRead > 0) {
+				pcmData.insert(pcmData.end(),
+					reinterpret_cast<short*>(pcmBuffer.data()),
+					reinterpret_cast<short*>(pcmBuffer.data()) + samplesRead / 2);
+			}
+		} while (samplesRead > 0);
+
+		ALenum format = (channels == 1) ? AL_FORMAT_MONO16 : AL_FORMAT_STEREO16;
+		alBufferData(buffer, format, pcmData.data(), pcmData.size() * sizeof(short), sampleRate);
+
+		alGenSources(1, &source);
+		alSourcei(source, AL_BUFFER, buffer);
+
+		ov_clear(&oggFile);
 	}
 
 	Sound::~Sound() {
-		ma_sound_uninit(&sound);
+		alSourceStop(source);
+		alDeleteBuffers(1, &buffer);
+		alDeleteSources(1, &source);
 	}
 
 	void Sound::Play() {
-		ma_sound_start(&sound);
+		alSourcePlay(source);
 	}
 
-	void Sound::SetVolume(float volume) {
-		ma_sound_set_volume(&sound, volume);
+	void Sound::SetVolume(ALfloat volume) {
+		alSourcef(source, AL_GAIN, volume);
 	}
 
-	void Sound::SetPitch(float pitch) {
-		ma_sound_set_pitch(&sound, pitch);
+	void Sound::SetPitch(ALfloat pitch) {
+		alSourcef(source, AL_PITCH, pitch);
 	}
 
-	Music::Music(const std::string& filepath) {
-		if (ma_sound_init_from_file(&gEngine, filepath.c_str(), MA_SOUND_FLAG_STREAM, NULL, NULL, &music) != MA_SUCCESS) {
-			std::cerr << "Failed to load music: " << filepath << std::endl;
-		}
+	ALfloat Sound::GetVolume() const{
+		ALfloat volume = 0.0f;
+		alGetSourcef(source, AL_GAIN, &volume);
+		return volume;
 	}
 
-	Music::~Music() {
-		ma_sound_uninit(&music);
+	ALfloat Sound::GetPitch() const {
+		ALfloat pitch = 0.0f;
+		alGetSourcef(source, AL_PITCH, &pitch);
+		return pitch;
 	}
-
-	void Music::Play() {
-		ma_sound_start(&music);
-	}
-
-	void Music::Stop() {
-		ma_sound_stop(&music);
-		ma_sound_seek_to_pcm_frame(&music, 0);
-	}
-
-	void Music::SetVolume(float volume) {
-		ma_sound_set_volume(&music, volume);
-	}
-
-	void Music::SetPitch(float pitch) {
-		ma_sound_set_pitch(&music, pitch);
-	}
-
-	void Music::SetLooping(bool IsLooping) {
-		ma_sound_set_looping(&music, IsLooping);
-	}
-	
 }
