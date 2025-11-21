@@ -2,8 +2,8 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 ; Non-commercial use only
 
-#define MyAppName "CGL-0.0.2"
-#define MyAppVersion "0.0.2"
+#define MyAppName "CGL-0.0.4"
+#define MyAppVersion "0.0.4"
 #define MyAppPublisher "WackyDev"
 #define MyAppURL "https://github.com/W4CKYFR/CGL"
 
@@ -42,4 +42,3 @@ Source: "C:\Users\Z2 G4\Documents\CGL-SDK\*"; DestDir: "{app}"; Flags: ignorever
 
 [Icons]
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
-
