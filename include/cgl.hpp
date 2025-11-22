@@ -8,6 +8,6 @@
 namespace cgl {
 	//Library version info
 	inline const char* Version() {
-		return "CGL v0.0.3";
+		return "CGL v0.0.5";
 	}
 }
