@@ -44,7 +44,7 @@ Here's how that's done:
 
 ```c
 window.SetColor(Red, Green, Blue, Alpha); // these are all Floats (0.0-1.0)
-if (!window.ShouldClose()){
+while (!window.ShouldClose()){
   window.ClearColorBufferBit();
   window.PollEvents();
 
