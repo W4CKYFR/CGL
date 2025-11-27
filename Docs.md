@@ -5,24 +5,13 @@
 > The installation guide is in [README.md](https://github.com/W4CKYFR/CGL/blob/main/README.md)
 > These docs mostly have code examples and guides/tutorials on how to use CGL.  
 > All other info you will also find in the [README.md](https://github.com/W4CKYFR/CGL/blob/main/README.md)
-> To learn C++ fundamentals you can go to [cppreference.com]( https://cppreference.com/)
-> Learning C++ isn't necessary, but is recommended for the best experience.
+> To learn C++ fundamentals you can go to [cppreference.com]( https://cppreference.com/)  
+> Learning C++ isn't necessary, but is recommended for the best experience.  
 
-## Creating a window object and opening it.
+## Getting Started
 
-Now we will create a **window** object. 
-```cpp
-cgl::Window window(width, height, "Window Name");
-```  
-Replace the **"width"** and **"height"** by an **integer** like for example 800, 600 if you want an 800 by 600 window.
+**First Steps:** [Installing](https://github.com/W4CKYFR/CGL/blob/main/README.md) | [Including CGL](https://github.com/W4CKYFR/CGL/blob/main/docs/include.md) | [Creating A Window](https://github.com/W4CKYFR/CGL/blob/main/docs/window.md)  
 
-Now we will keep it **open** by using window.ShouldClose() which is a **boolean** that checks if the window should close or not  
-```cpp
-if (!window.ShouldClose()) {
-  // Everything that happens in the window goes in here
-}
-```  
 
-## Displaying Text in the window
 
 
