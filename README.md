@@ -31,7 +31,7 @@ Join the official [CGL Discord Server](https://discord.gg/JrsCsKBDtM) to follow 
 > Same goes for bug reports and everything of the like.
 
 > [!Warning]
-> Before using CGL you will need to have [GLFW](https://www.glfw.org) installed and ready to go.<br>
+> Before using CGL you will need to have all [dependencies](https://github.com/W4CKYFR/CGL/blob/main/Dependencies.md) installed and ready to go.<br>
 > We recommend using vcpkg for simplicity if you are using [Visual Studio](https://visualstudio.microsoft.com). <br>
 > Thank you!
 
