@@ -5,6 +5,8 @@
 > The installation guide is in [README.md](https://github.com/W4CKYFR/CGL/blob/main/README.md)
 > These docs mostly have code examples and guides/tutorials on how to use CGL.  
 > All other info you will also find in the [README.md](https://github.com/W4CKYFR/CGL/blob/main/README.md)
+> To learn C++ fundamentals you can go to [cppreference.com]( https://cppreference.com/)
+> Learning C++ isn't necessary, but is recommended for the best experience.
 
 
 ## Including CGL (After Installation) and making a main loop
@@ -20,7 +22,6 @@ int main() {
   
 This will **include** the cgl.hpp which has all the other header files in it.  
 This makes it so you won't have to include multiple different .hpp files for your project.  
-The **main loop** is what the compiler will do once you run the code/exe.
 
 ## Creating a window object and opening it.
 
@@ -28,13 +29,13 @@ Now we will create a **window** object.
 ```cpp
 cgl::Window window(width, height, "Window Name");
 ```  
-Replace the **"width"** and **"height"** by an **integer** (A full number) like for example 800, 600 if you want an 800 by 600 window.
+Replace the **"width"** and **"height"** by an **integer** like for example 800, 600 if you want an 800 by 600 window.
 
-Now we will keep it **open** by using window.ShouldClose() which is a **boolean** (true or false) that checks if the window should close or not  
+Now we will keep it **open** by using window.ShouldClose() which is a **boolean** that checks if the window should close or not  
 ```cpp
 if (!window.ShouldClose()) {
   // Everything that happens in the window goes in here
 }
 ```  
 
-The **!** at the beginning means that the **if** statement is checking if window.ShouldClose() = false.
+
