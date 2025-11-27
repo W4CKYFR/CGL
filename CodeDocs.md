@@ -38,4 +38,6 @@ if (!window.ShouldClose()) {
 }
 ```  
 
+## Displaying Text in the window
+
 
