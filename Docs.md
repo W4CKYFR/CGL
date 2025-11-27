@@ -8,21 +8,6 @@
 > To learn C++ fundamentals you can go to [cppreference.com]( https://cppreference.com/)
 > Learning C++ isn't necessary, but is recommended for the best experience.
 
-
-## Including CGL (After Installation) and making a main loop
-
-To **include** CGL in your C++ project you will use  
-```cpp
-#include <cgl.hpp>
-
-int main() {
-  // Everything else goes inside the main loop
-}
-```
-  
-This will **include** the cgl.hpp which has all the other header files in it.  
-This makes it so you won't have to include multiple different .hpp files for your project.  
-
 ## Creating a window object and opening it.
 
 Now we will create a **window** object. 
