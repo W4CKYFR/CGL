@@ -13,5 +13,9 @@
 **First Steps:** [Installing (Bottom of readme)](https://github.com/W4CKYFR/CGL/blob/main/README.md) | [Including CGL](https://github.com/W4CKYFR/CGL/blob/main/docs/include.md) | [Creating A Window](https://github.com/W4CKYFR/CGL/blob/main/docs/window.md)  
 
 
+## Specific links to all docs
 
+- [Include](https://github.com/W4CKYFR/CGL/blob/main/docs/include.md), shows how to include CGL
+- [Window](https://github.com/W4CKYFR/CGL/blob/main/docs/window.md), window info
+  
 
