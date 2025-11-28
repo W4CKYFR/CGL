@@ -1,4 +1,4 @@
-# CGL Code Documentation:
+# CGL Documentation:
 
 > [!NOTE]
 > This documentation includes everything AFTER installation.    
