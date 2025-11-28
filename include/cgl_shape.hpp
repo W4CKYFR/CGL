@@ -1,7 +1,8 @@
 #pragma once
 #include <nanovg.h>
 #include <vector>
-#include "cgl.hpp"
+#include "cgl_vector.hpp"
+#include "cgl_color.hpp"
 
 namespace cgl {
     class Shape {
