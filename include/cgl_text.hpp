@@ -10,11 +10,13 @@ namespace cgl {
 
         void LoadFont(const char* fontName, const char* fontPath);
 
-        void DrawText(GLFWwindow* window) const;
+        void Draw() const;
 
         void SetText(std::string newText);
         void SetPosition(float newX, float newY);
         void SetSize(float newSize);
+        void Show();
+        void Hide();
 
     private:
         const char* fontName;
@@ -22,5 +24,7 @@ namespace cgl {
         float x, y;
         float size;
         NVGcontext* vg;
+        bool fontLoaded = false;
+        bool visible = true;
     };
 }

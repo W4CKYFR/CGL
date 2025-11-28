@@ -2,6 +2,7 @@
 #include <string>
 #include <GLFW/glfw3.h>
 #include <unordered_map>
+#include "cgl_shape.hpp"
 
 namespace cgl {
 	enum class Key {
@@ -94,6 +95,9 @@ namespace cgl {
 		static void MouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
 		static void BindKeyInput(const std::string& InputName, Key);
 		static void BindMouseInput(const std::string& MouseInputName, Mouse);
+		static cgl::Vector2 GetMousePosition();
+		static double GetMouseX();
+		static double GetMouseY();
 
 	private:
 		static GLFWwindow* s_Window;
@@ -105,5 +109,7 @@ namespace cgl {
 		static bool s_ButtonReleased;
 		static std::unordered_map<std::string, Key> s_KeyInputBindings;
 		static std::unordered_map<std::string, Mouse> s_MouseInputBindings;
+		static double mouseX;
+		static double mouseY;
 	};
 }

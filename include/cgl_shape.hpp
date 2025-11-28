@@ -1,22 +1,9 @@
 #pragma once
 #include <nanovg.h>
+#include <vector>
+#include "cgl.hpp"
 
 namespace cgl {
-	struct Color {
-		unsigned char r, g, b, a;
-
-        static const Color White;
-        static const Color Black;
-        static const Color Red;
-        static const Color Green;
-        static const Color Blue;
-	};
-
-	typedef struct Vector2 {
-		float x;
-		float y;
-	};
-
     class Shape {
     public:
         class Triangle {
@@ -29,6 +16,13 @@ namespace cgl {
             Vector2 GetP1() const { return p1; }
             Vector2 GetP2() const { return p2; }
             Vector2 GetP3() const { return p3; }
+            std::vector<Vector2> GetPos() const {
+                return { p1, p2, p3 };
+            }
+            void MoveUp(float moveAmount);
+            void MoveDown(float moveAmount);
+            void MoveLeft(float moveAmount);
+            void MoveRight(float moveAmount);
         private:
             bool visible = true;
             NVGcontext* vg;
@@ -48,6 +42,13 @@ namespace cgl {
             Vector2 GetP2() const { return p2; }
             Vector2 GetP3() const { return p3; }
             Vector2 GetP4() const { return p4; }
+            std::vector<Vector2> GetPos() const {
+                return { p1, p2, p3, p4 };
+            }
+            void MoveUp(float moveAmount);
+            void MoveDown(float moveAmount);
+            void MoveLeft(float moveAmount);
+            void MoveRight(float moveAmount);
 
         private:
             bool visible = true;
