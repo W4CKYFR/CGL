@@ -17,5 +17,6 @@
 
 - [Include](https://github.com/W4CKYFR/CGL/blob/main/docs/include.md), shows how to include CGL
 - [Window](https://github.com/W4CKYFR/CGL/blob/main/docs/window.md), window info
-  
+- [Text](https://github.com/W4CKYFR/CGL/blob/main/docs/text.md), All info including text
 
+  
