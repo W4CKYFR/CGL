@@ -41,6 +41,30 @@ namespace cgl {
             color);
     }
 
+    void Shape::Triangle::MoveUp(float moveAmount) {
+        p1.y -= moveAmount;
+        p2.y -= moveAmount;
+        p3.y -= moveAmount;
+    }
+
+    void Shape::Triangle::MoveDown(float moveAmount) {
+        p1.y += moveAmount;
+        p2.y += moveAmount;
+        p3.y += moveAmount;
+    }
+
+    void Shape::Triangle::MoveLeft(float moveAmount) {
+        p1.x -= moveAmount;
+        p2.x -= moveAmount;
+        p3.x -= moveAmount;
+    }
+
+    void Shape::Triangle::MoveRight(float moveAmount) {
+        p1.x += moveAmount;
+        p2.x += moveAmount;
+        p3.x += moveAmount;
+    }
+
     Shape::Rectangle::Rectangle(NVGcontext* vg, Vector2 a, Vector2 b, Vector2 c, Vector2 d, Color color) : vg(vg), p1(a), p2(b), p3(c), p4(d), color(color) {}
 
     void Shape::Rectangle::Draw() {
@@ -77,4 +101,31 @@ namespace cgl {
             color);
     }
 
+    void Shape::Rectangle::MoveUp(float moveAmount) {
+        p1.y -= moveAmount;
+        p2.y -= moveAmount;
+        p3.y -= moveAmount;
+        p4.y -= moveAmount;
+    }
+
+    void Shape::Rectangle::MoveDown(float moveAmount) {
+        p1.y += moveAmount;
+        p2.y += moveAmount;
+        p3.y += moveAmount;
+        p4.y += moveAmount;
+    }
+
+    void Shape::Rectangle::MoveLeft(float moveAmount) {
+        p1.x -= moveAmount;
+        p2.x -= moveAmount;
+        p3.x -= moveAmount;
+        p4.x -= moveAmount;
+    }
+
+    void Shape::Rectangle::MoveRight(float moveAmount) {
+        p1.x += moveAmount;
+        p2.x += moveAmount;
+        p3.x += moveAmount;
+        p4.x += moveAmount;
+    }
 }

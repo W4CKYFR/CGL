@@ -6,10 +6,17 @@
 #define NANOVG_GL3_IMPLEMENTATION
 #include <nanovg.h>
 #include <nanovg_gl.h>
+#include <chrono>
+#include <thread>
 
 namespace cgl {
+	std::chrono::steady_clock::time_point Window::lastTime;
+	double Window::FPS = 0.0;
+	double Window::deltaTime = 0.0;
+
 	Window::Window(int width, int height, const std::string& title) : vg(nullptr), handle(nullptr) {
 		bool initialized = glfwInit();
+		lastTime = std::chrono::high_resolution_clock::now();
 
 		if (!initialized) {
 			std::cerr << "[CGL] Failed to initialize GLFW" << std::endl;
@@ -69,19 +76,27 @@ namespace cgl {
 		}
 
 		void Window::PollEvents() const {
+			auto currentTime = std::chrono::high_resolution_clock::now();
+			deltaTime = std::chrono::duration<double>(currentTime - lastTime).count();
+
+			if (deltaTime > 0)
+				FPS = 1.0 / deltaTime;
+
 			glfwPollEvents();
+
+			lastTime = std::chrono::high_resolution_clock::now();
 		}
 
 		void Window::SwapBuffers() const {
 			glfwSwapBuffers(handle);
 		}
 
-		void Window::clearColorBufferBit() const {
+		void Window::ClearColorBufferBit() const {
 			glClear(GL_COLOR_BUFFER_BIT);
 		}
 
-		void Window::setColor(float Red, float Blue, float Green, float alpha) const {
-			glClearColor(Red, Blue, Green, alpha);
+		void Window::SetColor(float Red, float Green, float Blue, float alpha) const {
+			glClearColor(Red, Green, Blue, alpha);
 		}
 
 		GLFWwindow* Window::GetHandle() const {
@@ -93,4 +108,7 @@ namespace cgl {
 		}
 
 		NVGcontext* Window::GetVGContext() const { return vg; }
+
+		double Window::GetFPS() const { return FPS; }
+		double Window::GetDeltaTime() const { return deltaTime; }
 }

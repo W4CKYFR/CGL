@@ -95,4 +95,6 @@ namespace cgl {
 		alGetSourcef(source, AL_PITCH, &pitch);
 		return pitch;
 	}
+
+
 }

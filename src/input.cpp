@@ -13,6 +13,8 @@ namespace cgl {
 	bool Input::s_ButtonReleased = false;
 	std::unordered_map<std::string, Key> Input::s_KeyInputBindings;
 	std::unordered_map<std::string, Mouse> Input::s_MouseInputBindings;
+	double Input::mouseX = 0.0;
+	double Input::mouseY = 0.0;
 
 	void Input::SetWindow(GLFWwindow* window) {
 		s_Window = window;
@@ -145,5 +147,18 @@ namespace cgl {
 
 	void Input::BindMouseInput(const std::string& MouseInputName, Mouse mouseButton) {
 		s_MouseInputBindings[MouseInputName] = mouseButton;
+	}
+
+	cgl::Vector2 Input::GetMousePosition() {
+		glfwGetCursorPos(s_Window, &mouseX, &mouseY);
+		return cgl::Vector2((float)mouseX, (float)mouseY);
+	}
+
+	double Input::GetMouseX() {
+		return GetMousePosition().x;
+	}
+
+	double Input::GetMouseY() {
+		return GetMousePosition().y;
 	}
 }

@@ -6,30 +6,34 @@
 #include <nanovg.h>
 
 namespace cgl {
-	Text::Text(NVGcontext* context, const char* fontName, const char* text, float xpos, float ypos, float s) : vg(context), fontName(fontName), text(text), x(xpos), y(ypos), size(s) {
-
-	}
+	Text::Text(NVGcontext* context, const char* fontName, const char* text, float xpos, float ypos, float s) : vg(context), fontName(fontName), text(text), x(xpos), y(ypos), size(s) {}
 
 	void Text::LoadFont(const char* fontName, const char* fontPath) {
 		int fontRes = nvgCreateFont(vg, fontName, fontPath);
 		if (fontRes == -1) {
 			std::cerr << "[CGL] Failed to load font" << std::endl;
+			fontLoaded = false;
+		}
+		else {
+			fontLoaded = true;
 		}
 	}
 
-	void Text::DrawText(GLFWwindow* window) const{
-		int w, h;
-		glfwGetFramebufferSize(window, &w, &h);
+	void Text::Draw() const{
+		if (!visible) {
+			return;
+		}
 
-		nvgBeginFrame(vg, w, h, 1.0f);
+		if (!fontLoaded) {
+			std::cerr << "[CGL] Attempting to draw text with font '" << fontName << "' that hasn't been loaded." << std::endl;
+			return; 
+		}
 
 		nvgFontSize(vg, size);
 		nvgFontFace(vg, fontName);
 		nvgFillColor(vg, nvgRGB(255, 255, 255));
 
 		nvgText(vg, x, y, text.c_str(), nullptr);
-
-		nvgEndFrame(vg);
 	}
 
 	void Text::SetText(std::string newText) {
@@ -43,5 +47,13 @@ namespace cgl {
 	void Text::SetPosition(float newX, float newY) {
 		x = newX;
 		y = newY;
+	}
+
+	void Text::Show() {
+		visible = true;
+	}
+
+	void Text::Hide() {
+		visible = false;
 	}
 }
