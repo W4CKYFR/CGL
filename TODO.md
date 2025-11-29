@@ -22,3 +22,15 @@
 - Shader support
 - Small improvements to mouse input
 - Minimal UI (Might also go in to an add-on REPO)
+
+
+## Done Already
+
+- Simple Shapes
+- Text
+- Window Creation
+- Input
+- Layers
+- Color
+- Vector2
+- Drawing/Displaying things to the window
