@@ -8,9 +8,7 @@
 </td>
 <td>
 
-Core Graphics Library is a library that I made to make OpenGL simple to code in.<br>  
-
-I'd like to credit GLFW for their library which powers mine.<br>  
+CGL (Core Graphics Library) is a graphics library that makes graphics programming and video game developing simple and fun!<br>  
 
 CGL is inspired by Raylib and it's made mostly for Video Game developing, but can be used for other types of Graphics programming.<br>  
 
