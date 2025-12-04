@@ -67,7 +67,7 @@ int main() {
 This is what should come out:  
 <img width="790" height="624" alt="Näyttökuva 2025-11-28 205518" src="https://github.com/user-attachments/assets/ad8b955c-2eb6-4d5d-a997-d95341a10547" />  
 
-## SetText() functions
+## SetText functions
 
 You can also change the text anywhere in the code by using SetText(); here's a small example:  
 
@@ -78,7 +78,7 @@ text.SetText("What's up");
 
 this will simply change the text to "What's up"  
 
-## Show(); And Hide();
+## Show And Hide
 
 The following functions are pretty straight forward:
 
@@ -92,3 +92,11 @@ text.Hide();
 
 text.Show(); sets an internal private boolean called "visible" to true which means it will draw Text normally.  
 While text.Hide(); sets it to false which means that the compiler will ignore the draw function.
+
+## SetPosition function
+
+This is how you can change the position of the text  
+```c
+text.SetPosition(300, 400);
+```
+The `300`, `400` are the x and y coordinates that the text will be located at once you have set the position.
