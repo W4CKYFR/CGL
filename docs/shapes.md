@@ -14,7 +14,14 @@ And it also takes in a ``cgl::Color.`` Here, I'm using one of the pre-made color
 You can also create a custom Triangle by setting your own points like this:
 
 ```c
-cgl::Shape::Triangle myTriangle (vg, { 100, 100 }, { 200, 100 }, { 150, 200 }, color);)
+cgl::Shape::Triangle myTriangle(window.GetVGContext(), { 100, 100 }, { 200, 100 }, { 150, 200 }, cgl::Color::White;
 ```
   
-The numbers are a ``cgl::Vector2`` variable which stores in a x and y. You can change them to whatever you'd like.
+The numbers are a ``cgl::Vector2`` variable which takes in x and y. You can change them to whatever you'd like.
+  
+Here's how you can create a square using the default square that CGL provides:  
+```c
+cgl::Shape::Rectangle mySquare = cgl::shape::DefaultSquare(window.GetVGContext(), cgl::Color::White);
+```
+
+The Default Square also takes in the NanoVG context which you can get by using ``window.GetVGContext()``
