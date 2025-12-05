@@ -52,13 +52,66 @@ if (cgl::Input:IsMouseButtonPressed(cgl::Mouse::LeftMouseButton)) {
 Triggers once on the frame the mouse button was pressed
 ```C
 if (cgl::Input:IsMouseButtonDown(cgl::Mouse::LeftMouseButton)) {
-    std::cout << "The left mouse button is down"
+    std::cout << "The left mouse button is down";
 }
 ```
 Triggers every frame the mouse button is down
 ```c
 if (cgl::Input::IsMouseButtonReleased(cgl::Mouse::LeftMouseButton)) {
-    std::cout << "The left mouse button was released"
+    std::cout << "The left mouse button was released";
 }
 ```
 Triggers once on the frame the mouse button was released
+
+
+## Bind Input
+
+Binding an input will put it to an "alias" like a string. This is how it works 
+
+**Keys**  
+
+You'll use the binding function for keys like this  
+```c
+cgl::Input::BindKeyInput("Jump", cgl::Key::Space);
+```
+This binds "Jump" to the space key.  
+Here's how you can check for the "Jump"  
+```c
+if (cgl::Input::IsKeyPressed("Jump")) {
+    std::cout << "Jump";
+}
+```
+
+**Mouse Buttons**  
+It's very similiar for mouse buttons.  
+
+You'll use the binding function for mouse buttons like this  
+```c
+cgl::Input::BindMouseInput("Shoot", cgl::Mouse::LeftMouseButton);
+```
+
+Checking for it works the same way for mouse buttons as for keys:
+```c
+if (cgl::Input::IsMouseButtonPressed("Shoot")) {
+    std::cout << "Shoot!";
+}
+```
+
+## Mouse Position
+
+Here's how you can get the mouse position with CGL input:  
+
+Mouse X Position:  
+```c
+cgl::Input::GetMouseX();
+```
+  
+Mouse Y position:
+```c
+cgl::Input::GetMouseY();
+```
+  
+Mouse Position:
+```c
+cgl::Input::GetMousePosition();
+```
