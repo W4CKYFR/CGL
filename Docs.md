@@ -19,5 +19,6 @@
 - [Window](https://github.com/W4CKYFR/CGL/blob/main/docs/window.md), window info
 - [Text](https://github.com/W4CKYFR/CGL/blob/main/docs/text.md), All info including text
 - [Shapes](https://github.com/W4CKYFR/CGL/blob/main/docs/shapes.md), All info including shapes
+- [Input](https://github.com/W4CKYFR/CGL/blob/main/docs/input.md), All info including input
 
   
