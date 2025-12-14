@@ -35,7 +35,7 @@ Join the official [CGL Discord Server](https://discord.gg/JrsCsKBDtM) to follow 
 
 ## Additional information about CGL.
 CGL was created by two people<br>The main developer, Owner and Founder: [Wacky](https://github.com/W4CKYFR)<br>The main graphics designer, Co-Owner and Co-Founder: [Axov](https://github.com/AXOV2YT)<br>
-CGL was made so **YOU** could have an easy and fun time developing games and other graphics programs/software<br>
+CGL was made so I didn't have to deal with huge engines anymore.<br>
 CGL was first created on the 11th of November 2025 which was also [Axov's](https://github.com/AXOV2YT) birthday.<br>
 
 ## Features
