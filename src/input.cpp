@@ -1,4 +1,4 @@
-#include "cgl.hpp"
+#include "cgl_input.hpp"
 #include <string>
 #include <GLFW/glfw3.h>
 #include <unordered_map>

@@ -14,7 +14,7 @@ namespace cgl {
 	double Window::FPS = 0.0;
 	double Window::deltaTime = 0.0;
 
-	Window::Window(int width, int height, const std::string& title) : vg(nullptr), handle(nullptr) {
+	Window::Window(int width, int height, const std::string& title) : rWidth(width), rHeight(height),  vg(nullptr), handle(nullptr) {
 		bool initialized = glfwInit();
 		lastTime = std::chrono::high_resolution_clock::now();
 
@@ -95,8 +95,8 @@ namespace cgl {
 			glClear(GL_COLOR_BUFFER_BIT);
 		}
 
-		void Window::SetColor(float Red, float Green, float Blue, float alpha) const {
-			glClearColor(Red, Green, Blue, alpha);
+		void Window::SetColor(const Color& c) const {
+			glClearColor(c.r / 255.0f, c.g / 255.0f, c.b / 255.0f, c.a / 255.0f);
 		}
 
 		GLFWwindow* Window::GetHandle() const {
@@ -111,4 +111,7 @@ namespace cgl {
 
 		double Window::GetFPS() const { return FPS; }
 		double Window::GetDeltaTime() const { return deltaTime; }
+
+		int Window::GetWidth() const { return rWidth; }
+		int Window::GetHeight() const { return rHeight; }
 }

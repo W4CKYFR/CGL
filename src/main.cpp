@@ -2,44 +2,109 @@
 #include <iostream>
 
 int main() {
-	cgl::Window window(800, 600, "Window Name");
+	float width = 800;
+	float height = 600;
+	cgl::Window window(width, height, "WackyMenu");
 
-	cgl::Text text(window.GetVGContext(), "Roboto", "Hello World", 300, 300, 24);
+	cgl::Shape::Rectangle button = cgl::Shape::DefaultSquare(window.GetVGContext(), cgl::Color::Blue);
 
-	cgl::Shape::Triangle triangle = cgl::Shape::DefaultTriangle(window.GetVGContext(), cgl::Color::Red);
+	cgl::Shape::Rectangle startButton = cgl::Shape::DefaultSquare(window.GetVGContext(), cgl::Color::Blue);
 
-	text.LoadFont("Roboto", "C:\\Users\\Z2 G4\\Downloads\\Roboto\\Roboto-VariableFont_wdth,wght.ttf");
+	startButton.Scale(2, 1);
+
+	button.SetPosition(cgl::Position::BottomLeft(window));
+	startButton.SetPosition(cgl::Position::Center(window));
+
+
+	cgl::Font font(window.GetVGContext(), "C:\\Users\\Z2 G4\\Downloads\\Roboto\\Roboto-VariableFont_wdth,wght.ttf");
+
+	cgl::Text button1text(window.GetVGContext(), font, "Quit", button.GetCenter(), 24, cgl::Color::White);
+	cgl::Text startbuttonText(window.GetVGContext(), font, "Start", startButton.GetCenter(), 24, cgl::Color::White);
+
+	cgl::Shape::Rectangle Player = cgl::Shape::DefaultSquare(window.GetVGContext(), cgl::Color::Red);
+	cgl::Text text(window.GetVGContext(), font, "Player", cgl::Position::Center(window), 24, cgl::Color::White);
 
 	cgl::Input::SetWindow(window.GetHandle());
-	window.SetColor(0.0f, 0.0f, 0.0f, 1.0f);
-    while (!window.ShouldClose()) {
-        window.ClearColorBufferBit();
-        window.PollEvents();
+
+	cgl::Color hoverBlue{ 0, 0, 255, 180 };
+
+	cgl::Layer startLayer;
+
+	startLayer.Add(&button);
+	startLayer.Add(&button1text);
+	startLayer.Add(&startButton);
+	startLayer.Add(&startbuttonText);
+
+	cgl::Layer gameLayer;
+
+	gameLayer.Add(&Player);
+	gameLayer.Add(&text);
+
+	Player.SetPosition(cgl::Position::Center(window));
+
+	bool Game = false;
+
+	window.SetColor(cgl::Color::White);
+	while (!window.ShouldClose()) {
+		window.ClearColorBufferBit();
+		window.PollEvents();
 
 		cgl::Draw::BeginDraw(window);
 
-		triangle.Draw();
-		text.Draw();
-		text.SetText("What's up");
+		startLayer.Draw();
+
+		if (button.IsMouseHovering()) {
+			button.SetColor(hoverBlue);
+			if (cgl::Input::IsMouseButtonPressed(cgl::Mouse::LeftMouseButton)) {
+				window.Close();
+			}
+		}
+		else if (startButton.IsMouseHovering()) {
+			startButton.SetColor(hoverBlue);
+			if (cgl::Input::IsMouseButtonPressed(cgl::Mouse::LeftMouseButton)) {
+				startLayer.Hide();
+				Game = true;
+			}
+		}
+		else {
+			button.SetColor(cgl::Color::Blue);
+			startButton.SetColor(cgl::Color::Blue);
+		}
+
+		if (Game) {
+			gameLayer.Draw();
+			gameLayer.Show();
+		}
+		else {
+			gameLayer.Hide();
+		}
+
+		text.SetPosition(Player.GetCenter());
 
 		if (cgl::Input::IsKeyDown(cgl::Key::W)) {
-			triangle.MoveUp(1);
+			Player.MoveUp(1);
 		}
 
 		if (cgl::Input::IsKeyDown(cgl::Key::S)) {
-			triangle.MoveDown(1);
+			Player.MoveDown(1);
 		}
 
 		if (cgl::Input::IsKeyDown(cgl::Key::A)) {
-			triangle.MoveLeft(1);
+			Player.MoveLeft(1);
 		}
 
 		if (cgl::Input::IsKeyDown(cgl::Key::D)) {
-			triangle.MoveRight(1);
+			Player.MoveRight(1);
+		}
+
+		if (cgl::Input::IsKeyPressed(cgl::Key::Escape)) {
+			gameLayer.Hide();
+			startLayer.Show();
+			Game = false;
 		}
 
 		cgl::Draw::EndDraw(window);
 
 		window.SwapBuffers();
-    }
+	}
 }
