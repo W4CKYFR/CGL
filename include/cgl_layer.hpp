@@ -1,13 +1,15 @@
 #pragma once
 #include <vector>
 #include <variant>
-#include "cgl.hpp"
+#include "cgl_shape.hpp"
+#include "cgl_text.hpp"
 
 namespace cgl {
 
 	using DrawableVariant = std::variant <
 		cgl::Shape::Triangle*,
 		cgl::Shape::Rectangle*,
+		cgl::Shape::Circle*,
 		cgl::Text*
 	>;
 

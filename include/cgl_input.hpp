@@ -98,7 +98,6 @@ namespace cgl {
 		static cgl::Vector2 GetMousePosition();
 		static double GetMouseX();
 		static double GetMouseY();
-
 	private:
 		static GLFWwindow* s_Window;
 		static bool s_KeyPressed;
@@ -111,5 +110,7 @@ namespace cgl {
 		static std::unordered_map<std::string, Mouse> s_MouseInputBindings;
 		static double mouseX;
 		static double mouseY;
+		static float scrollDelta;
+		static float scrollDeltaSmooth;
 	};
 }

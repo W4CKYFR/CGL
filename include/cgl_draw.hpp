@@ -1,5 +1,5 @@
 #pragma once
-#include "cgl.hpp"
+#include "cgl_window.hpp"
 
 namespace cgl {
 	class Draw {
