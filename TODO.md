@@ -9,13 +9,12 @@
 ## Feature List
 
 - Textures
-- Basic Physics
+- Physics (Coming Very Soon)
 - 3D (Not planned to come anytime soon, for now CGL will focus on 2D)
 - Music Support (Sounds are already supported, streaming music is not)
 - Some bindings to languages like C and Python (Will probably happen once CGL is out of early development)
 - Better debugging (Working on it slowly, but surely as I go on)
 - More shapes
-- Changing text color
 - Simple animation support
 - Shader support
 
@@ -32,4 +31,5 @@
 - Drawing/Displaying things to the window
 - Time (coming in CGL v0.0.8)
 - 2D Camera (coming in CGL v0.0.8)
-- Images (Sprites and textures planned
+- Images (Sprites and textures planned)
+- Changing text color
