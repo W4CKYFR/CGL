@@ -8,7 +8,6 @@
 
 ## Feature List
 
-- Image Loading
 - Textures
 - Basic Physics
 - 3D (Not planned to come anytime soon, for now CGL will focus on 2D)
@@ -18,10 +17,7 @@
 - More shapes
 - Changing text color
 - Simple animation support
-- 2D camera
 - Shader support
-- Small improvements to mouse input
-- Minimal UI (Might also go in to an add-on REPO)
 
 
 ## Done Already
@@ -34,3 +30,6 @@
 - Color
 - Vector2
 - Drawing/Displaying things to the window
+- Time (coming in CGL v0.0.8)
+- 2D Camera (coming in CGL v0.0.8)
+- Images (Sprites and textures planned
